@@ -1,27 +1,38 @@
-import { CSSProperties, RefObject, Key, AriaRole, ReactNode, ClipboardEventHandler, CompositionEventHandler, FocusEventHandler, FormEventHandler, ReactEventHandler, KeyboardEventHandler, MouseEventHandler, DragEventHandler, TouchEventHandler, PointerEventHandler, UIEventHandler, WheelEventHandler, AnimationEventHandler, TransitionEventHandler } from 'react';
 import styled from 'styled-components'
-
 
 export const HomeHeader = styled.div`
 width: 100%;
-background-color: green;
-height: 15rem;
+background-color: limegreen;
+height: 5rem;
 
 h1{
-    padding: 3rem;
     color: white;
+    padding: 1rem;
 }
+`;
 
-div{
-    display: contents;
-  
-button{
-    margin-right: 1rem;
-    color: green;
-    display: inline;
-}     
+export const Menu = styled.div`
+display: flex;
+justify-content: space-around;
+
+`;
+
+
+export const Button = styled.button`
+   margin-top: 4px;
+   background-color: green;
+   padding: 1rem;
+   border: 2px;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
+   color: white;
+   border-color:white;
+
+:hover {
+background-color: white;
+color: green;
 }
- 
 `;
 
 
