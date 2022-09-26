@@ -6,12 +6,12 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    letter-spacing: 0.8px;
   }
   body {
     background: white;
     color: aliceblue;
     -webkit-font-smoothing: antialeased;
-    letter-spacing: 0.5px;
   }
   body, input, button {
     font-family: 'Roboto Flex', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

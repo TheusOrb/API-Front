@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Button, HomeHeader, Menu } from '../../components/styles';
+import Header from '../../components/Header';
+import Wrapper from '../../components/Wrapper';
 
 interface Veiculo {
   placa: string;
@@ -18,19 +19,6 @@ function getVeiculos() {
       .catch((error) => {});
   }, []);
 
-  return (
-    <div>
-      <title>Programa da Aletur</title>
-      <HomeHeader>
-        <h1>Aletur</h1>
-      </HomeHeader>
-      <Menu>
-        <Button>Home</Button>
-        <Button>Frota</Button>
-        <Button>Manutenção</Button>
-        <Button>Alertas</Button>
-      </Menu>
-    </div>
-  );
+  return <Wrapper>meu deus</Wrapper>;
 }
 export default getVeiculos;
