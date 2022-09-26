@@ -16,7 +16,7 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/api-pupi/:path*',
+        source: '/api/:path*',
         destination: 'http://localhost:8080/api/:path*',
       },
     ];

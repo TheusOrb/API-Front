@@ -1,9 +1,9 @@
-import { HomeFooter } from './styles';
+import { FooterStyled } from './styles';
 
 const Footer: React.FC = () => {
   return (
     <>
-      <HomeFooter></HomeFooter>
+      <FooterStyled></FooterStyled>
     </>
   );
 };
