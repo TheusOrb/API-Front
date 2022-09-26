@@ -2,21 +2,22 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Button, HomeHeader, Menu } from '../../components/styles';
 
-const url = 'http://localhost:8080/api/';
-interface Teste {
+interface Veiculo {
   placa: string;
 }
+
 function getVeiculos() {
-  const [veiculo, setVeiculo] = useState<Teste[]>([]);
+  const [veiculos, setVeiculos] = useState<Veiculo[]>([]);
 
   useEffect(() => {
     axios
-      .get(url + 'veiculo')
+      .get('/api-pupi/veiculo')
       .then(({ data }) => {
-        setVeiculo(data);
+        setVeiculos(data);
       })
       .catch((error) => {});
   }, []);
+
   return (
     <div>
       <title>Programa da Aletur</title>

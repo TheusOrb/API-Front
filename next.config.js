@@ -1,10 +1,24 @@
-// module.exports = {
-//   async headers () {
-//     return [
-//       {
-//         source: '/:path*',
-//         headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }]
-//       }
-//     ]
-//   }
-// }
+/* eslint-disable space-before-function-paren */
+/* eslint-disable semi */
+/* eslint-disable comma-dangle */
+/** @type {import('next').NextConfig} */
+
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api-pupi/:path*',
+        destination: 'http://localhost:8080/api/:path*',
+      },
+    ];
+  },
+};
