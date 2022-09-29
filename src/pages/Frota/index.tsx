@@ -1,6 +1,7 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Wrapper from '../../components/Wrapper';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Table from "../../components/Table";
+import Wrapper from "../../components/Wrapper";
 
 interface Veiculo {
   placa: string;
@@ -13,7 +14,7 @@ function getVeiculos() {
 
   useEffect(() => {
     axios
-      .get('/api/veiculo')
+      .get("/api/veiculo")
       .then(({ data }) => {
         setVeiculos(data);
       })
@@ -22,12 +23,12 @@ function getVeiculos() {
 
   return (
     <Wrapper>
-      <div>
-        {veiculos.map((veiculos) => (
-          <div key={veiculos.placa}>{veiculos.placa}</div>
-        ))}
-        ;
-      </div>
+      <Table>
+          {veiculos.map((veiculos) => (
+            <div key={veiculos.placa}>{veiculos.placa}</div>
+          ))}
+          ;
+      </Table>
     </Wrapper>
   );
 }
