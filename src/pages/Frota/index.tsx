@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Table from "../../components/Table";
+import { ColumBody } from "../../components/Table/styles";
 import Wrapper from "../../components/Wrapper";
 
 interface Veiculo {
@@ -24,10 +25,13 @@ function getVeiculos() {
   return (
     <Wrapper>
       <Table>
-          {veiculos.map((veiculos) => (
-            <div key={veiculos.placa}>{veiculos.placa}</div>
-          ))}
-          ;
+        <div>Placa</div><div>Descrição do Veiculo</div>
+        {veiculos.map((veiculos) => (
+          <>
+            <ColumBody key ={veiculos.placa}>
+              {veiculos.placa}{veiculos.veiculodescr}</ColumBody>
+          </>
+        ))}
       </Table>
     </Wrapper>
   );

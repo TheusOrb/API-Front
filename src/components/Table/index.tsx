@@ -9,7 +9,7 @@ const Table: React.FC <TableProps> = ({ children }) => {
   return (
     <>
       <BodyTable>
-        
+          {children}
       </BodyTable>
     </>
   );
