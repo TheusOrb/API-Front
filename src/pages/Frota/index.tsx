@@ -1,13 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Table from "../../components/Table";
-import { ColumBody } from "../../components/Table/styles";
+import {
+  TableHome,
+  TableBody,
+  BodyRow,
+  TableData,
+  HeadData,
+  TableHead,
+  HeadRow,
+} from "../../components/Table/styles";
+
 import Wrapper from "../../components/Wrapper";
 
 interface Veiculo {
   placa: string;
-  veiculodescr: string;
+  descrveiculo: string;
   marca: string;
+  ano: string;
 }
 
 function getVeiculos() {
@@ -24,15 +33,27 @@ function getVeiculos() {
 
   return (
     <Wrapper>
-      <Table>
-        <div>Placa</div><div>Descrição do Veiculo</div>
-        {veiculos.map((veiculos) => (
-          <>
-            <ColumBody key ={veiculos.placa}>
-              {veiculos.placa}{veiculos.veiculodescr}</ColumBody>
-          </>
-        ))}
-      </Table>
+      <TableHome>
+        <TableHead>
+          <HeadRow>
+            <HeadData>Placa</HeadData>
+            <HeadData>Veiculo</HeadData>
+            <HeadData>Marca</HeadData>
+            <HeadData>Ano</HeadData>
+          </HeadRow>
+        </TableHead>
+        <TableBody>
+          {veiculos.map((veiculos) => (
+            <BodyRow>
+              <TableData key={veiculos.placa}>{veiculos.placa}</TableData>
+              <TableData key={veiculos.placa}>{veiculos.descrveiculo}</TableData>
+              <TableData key={veiculos.placa}>{veiculos.marca}</TableData>
+              <TableData key={veiculos.placa}>{veiculos.ano}</TableData>
+            </BodyRow>
+          ))}
+          ;
+        </TableBody>
+      </TableHome>
     </Wrapper>
   );
 }

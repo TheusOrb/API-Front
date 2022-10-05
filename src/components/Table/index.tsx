@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { BodyTable } from "./styles";
+import { TableHome } from "./styles";
 
 interface TableProps {
   children: ReactNode;
@@ -8,9 +8,9 @@ interface TableProps {
 const Table: React.FC <TableProps> = ({ children }) => {
   return (
     <>
-      <BodyTable>
+      <TableHome>
           {children}
-      </BodyTable>
+      </TableHome>
     </>
   );
 };
