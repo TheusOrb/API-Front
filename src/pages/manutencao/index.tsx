@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Form, Input, Label, Pack } from "../../components/Form/styles";
+("");
 import {
   TableHome,
   TableBody,
@@ -23,6 +23,9 @@ interface Manutencao {
   valor: string;
 }
 
+import bootstrap from "bootstrap";
+import { Form, Input, Organization, Pack } from "../../components/Form/styles";
+
 function getManutencao() {
   const [manutencao, setManutencao] = useState<Manutencao[]>([]);
 
@@ -38,21 +41,76 @@ function getManutencao() {
   return (
     <Wrapper>
       <Form>
-        <Label>
-          <Pack>Placa:</Pack>
-          <Input type="text" name="name" />
-          <Pack>Manutenção:</Pack>
-          <Input type="text" name="name" />
-          <Pack>Tipo:</Pack>
-          <Input type="text" name="name" />
-          <Pack>Data da Manutenção:</Pack>
-          <Input type="text" name="name" />
-          <Pack>Data da Proxima Manutenção:</Pack>
-          <Input type="text" name="name" />
-          <Pack>Valor da Manutenção:</Pack>
-          <Input type="text" name="name" />
-        </Label>
-        <Input type="submit" value="Enviar" />
+        <Organization>
+          <div>
+            <Pack className="input-group-text" id="inputGroup-sizing-default">
+              Placa do Veiculo
+            </Pack>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+          <div>
+            <Pack className="input-group-text" id="inputGroup-sizing-default">
+              Descrição do Veiculo
+            </Pack>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+          <div>
+            <Pack className="input-group-text" id="inputGroup-sizing-default">
+              Marca
+            </Pack>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+        </Organization>
+        <Organization>
+          <div>
+            <Pack className="input-group-text" id="inputGroup-sizing-default">
+              Data da Manutenção
+            </Pack>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+          <div>
+            <Pack className="input-group-text" id="inputGroup-sizing-default">
+              Data da Proxima Manutenção
+            </Pack>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+          <div>
+            <Pack className="input-group-text" id="inputGroup-sizing-default">
+              Valor da Manutenção
+            </Pack>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+        </Organization>
       </Form>
       <TableHome>
         <TableHead>

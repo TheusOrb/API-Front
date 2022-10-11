@@ -1,20 +1,13 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const Form = styled.div`
+display: flex;
+flex-direction: column;
 color: black;
 margin: 4rem;
 `;
 
-export const Label = styled.label`
-display: inline-block;
-`;
-
-export const Input = styled.input`
-margin-right: 2rem;
-margin-left: 0.5rem;
-`;
-
-export const Pack = styled.div`
+export const Pack = styled.span`
   background-color: limegreen;
   border-collapse: collapse;
   text-align: center;
@@ -22,5 +15,15 @@ export const Pack = styled.div`
   overflow: hidden;
   text-align: center;
   color: white;
-  border-color: white;
+  border-color: black;
+`;
+
+export const Organization = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+export const Input = styled.input`
+margin-left: 1rem;
 `;
