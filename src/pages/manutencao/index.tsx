@@ -23,7 +23,14 @@ interface Manutencao {
   valor: string;
 }
 
-import { Add, Form, Input, Organization, Pack } from "../../components/Form/styles";
+import {
+  Add,
+  Form,
+  Input,
+  OrganizationButoon,
+  OrganizationForm,
+  Remove,
+} from "../../components/Form/styles";
 
 function getManutencao() {
   const [manutencao, setManutencao] = useState<Manutencao[]>([]);
@@ -40,7 +47,7 @@ function getManutencao() {
   return (
     <Wrapper>
       <Form>
-        <Organization>
+        <OrganizationForm>
           <div>
             <Input
               type="text"
@@ -68,8 +75,8 @@ function getManutencao() {
               placeholder="Marca do Veículo"
             />
           </div>
-        </Organization>
-        <Organization>
+        </OrganizationForm>
+        <OrganizationForm>
           <div>
             <Input
               type="text"
@@ -97,8 +104,11 @@ function getManutencao() {
               placeholder="Valor da Manutenção"
             />
           </div>
-        </Organization>
+        </OrganizationForm>
+        <OrganizationButoon>
           <Add>+</Add>
+          <Remove>-</Remove>
+        </OrganizationButoon>
       </Form>
       <TableHome>
         <TableHead>
