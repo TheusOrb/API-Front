@@ -7,17 +7,6 @@ color: black;
 margin: 4rem;
 `;
 
-export const Pack = styled.span`
-  background-color: limegreen;
-  border-collapse: collapse;
-  text-align: center;
-  border-radius:8px;
-  overflow: hidden;
-  text-align: center;
-  color: white;
-  border-color: black;
-`;
-
 export const Organization = styled.div`
   display: flex;
   flex-direction: row;
@@ -25,5 +14,26 @@ export const Organization = styled.div`
 `;
 
 export const Input = styled.input`
-margin-left: 1rem;
+  background-color: limegreen;
+  text-align: center;
+  border-radius:6px;
+  width: 20rem;
+  height: 2rem;
+  margin-top: 1rem;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  border-color: white;
+  ::placeholder{
+    color: white;
+  }
+`;
+
+export const Add = styled.button`
+  background-color: limegreen;
+  width: 3rem;
+  border-color: white;
+  border-radius:6px;
+  color: white;
+  height: 2rem;
 `;

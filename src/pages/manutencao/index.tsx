@@ -23,8 +23,7 @@ interface Manutencao {
   valor: string;
 }
 
-import bootstrap from "bootstrap";
-import { Form, Input, Organization, Pack } from "../../components/Form/styles";
+import { Add, Form, Input, Organization, Pack } from "../../components/Form/styles";
 
 function getManutencao() {
   const [manutencao, setManutencao] = useState<Manutencao[]>([]);
@@ -43,74 +42,63 @@ function getManutencao() {
       <Form>
         <Organization>
           <div>
-            <Pack className="input-group-text" id="inputGroup-sizing-default">
-              Placa do Veiculo
-            </Pack>
             <Input
               type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
+              placeholder="Placa do Veículo"
             />
           </div>
           <div>
-            <Pack className="input-group-text" id="inputGroup-sizing-default">
-              Descrição do Veiculo
-            </Pack>
             <Input
               type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
+              placeholder="Descrição do Veículo"
             />
           </div>
           <div>
-            <Pack className="input-group-text" id="inputGroup-sizing-default">
-              Marca
-            </Pack>
             <Input
               type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
+              placeholder="Marca do Veículo"
             />
           </div>
         </Organization>
         <Organization>
           <div>
-            <Pack className="input-group-text" id="inputGroup-sizing-default">
-              Data da Manutenção
-            </Pack>
             <Input
               type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
+              placeholder="Data da Manutenção"
             />
           </div>
           <div>
-            <Pack className="input-group-text" id="inputGroup-sizing-default">
-              Data da Proxima Manutenção
-            </Pack>
             <Input
               type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
+              placeholder="Data da Proxima Manutenção"
             />
           </div>
           <div>
-            <Pack className="input-group-text" id="inputGroup-sizing-default">
-              Valor da Manutenção
-            </Pack>
             <Input
               type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
+              placeholder="Valor da Manutenção"
             />
           </div>
         </Organization>
+          <Add>+</Add>
       </Form>
       <TableHome>
         <TableHead>
