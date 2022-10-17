@@ -63,7 +63,7 @@ function getManutencao() {
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
-              placeholder="Descrição do Veículo"
+              placeholder="Manutenção"
             />
           </div>
           <div>
@@ -72,7 +72,7 @@ function getManutencao() {
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
-              placeholder="Marca do Veículo"
+              placeholder="Tipo de Manutenção"
             />
           </div>
         </OrganizationForm>
