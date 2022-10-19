@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Add, Form, Input, OrganizationButoon, OrganizationForm, Remove } from "../../components/Form/styles";
 import {
   TableHome,
   TableBody,
@@ -33,6 +34,50 @@ function getVeiculos() {
 
   return (
     <Wrapper>
+      <Form>
+        <OrganizationForm>
+          <div>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+              placeholder="Placa do Veículo"
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+              placeholder="Veículo"
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+              placeholder="Marca"
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+              placeholder="Ano"
+            />
+          </div>
+        </OrganizationForm>
+        <OrganizationButoon>
+          <Add>+</Add>
+          <Remove>-</Remove>
+        </OrganizationButoon>
+      </Form>
       <TableHome>
         <TableHead>
           <HeadRow>
