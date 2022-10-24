@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-("");
+import Wrapper from "../../components/Wrapper";
+import FormularioManutencao from "../../components/Form/FormManutencao";
 import {
   TableHome,
   TableBody,
@@ -11,8 +12,6 @@ import {
   HeadRow,
 } from "../../components/Table/styles";
 
-import Wrapper from "../../components/Wrapper";
-
 interface Manutencao {
   idmanutencao: string;
   placaveiculo: string;
@@ -22,15 +21,6 @@ interface Manutencao {
   proximadata: string;
   valor: string;
 }
-
-import {
-  Add,
-  Form,
-  Input,
-  OrganizationButoon,
-  OrganizationForm,
-  Remove,
-} from "../../components/Form/styles";
 
 function getManutencao() {
   const [manutencao, setManutencao] = useState<Manutencao[]>([]);
@@ -46,70 +36,7 @@ function getManutencao() {
 
   return (
     <Wrapper>
-      <Form>
-        <OrganizationForm>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Placa do Veículo"
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Manutenção"
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Tipo de Manutenção"
-            />
-          </div>
-        </OrganizationForm>
-        <OrganizationForm>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Data da Manutenção"
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Data da Proxima Manutenção"
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Valor da Manutenção"
-            />
-          </div>
-        </OrganizationForm>
-        <OrganizationButoon>
-          <Add>+</Add>
-          <Remove>-</Remove>
-        </OrganizationButoon>
-      </Form>
+      <FormularioManutencao></FormularioManutencao>
       <TableHome>
         <TableHead>
           <HeadRow>
