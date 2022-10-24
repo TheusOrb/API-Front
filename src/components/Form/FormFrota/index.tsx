@@ -7,14 +7,17 @@ import {
   Remove,
 } from "../styles";
 
-import {useForm} from "react-hook-form"
-
-const { register, handleSubmit, formState: { errors } } =  useForm();
+import { useForm } from "react-hook-form";
+import { useCallback } from "react";
 
 const FormularioFrota: React.FC = () => {
-  return (
+  const { register, getValues} = useForm({});
 
-    
+  const addPost = useCallback((data: any) => {
+    console.log(data);
+  }, []);
+
+  return (
     <>
       <Form>
         <OrganizationForm>
@@ -24,7 +27,8 @@ const FormularioFrota: React.FC = () => {
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
-              placeholder="Placa do Veículo"{...register("placa")}
+              placeholder="Placa do Veículo"
+              {...register("placa")}
             />
           </div>
           <div>
@@ -33,7 +37,8 @@ const FormularioFrota: React.FC = () => {
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
-              placeholder="Veículo"{...register("veiculo")}
+              placeholder="Veículo"
+              {...register("veiculo")}
             />
           </div>
           <div>
@@ -42,7 +47,8 @@ const FormularioFrota: React.FC = () => {
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
-              placeholder="Marca"{...register("marca")}
+              placeholder="Marca"
+              {...register("marca")}
             />
           </div>
           <div>
@@ -51,12 +57,13 @@ const FormularioFrota: React.FC = () => {
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
-              placeholder="Ano"{...register("ano")}
+              placeholder="Ano"
+              {...register("ano")}
             />
           </div>
         </OrganizationForm>
         <OrganizationButoon>
-          <Add>+</Add>
+          <Add onClick={() => addPost(getValues())}>+</Add>
           <Remove>-</Remove>
         </OrganizationButoon>
       </Form>
@@ -64,3 +71,5 @@ const FormularioFrota: React.FC = () => {
   );
 };
 export default FormularioFrota;
+
+

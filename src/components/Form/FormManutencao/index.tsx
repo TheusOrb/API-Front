@@ -11,7 +11,7 @@ import { useForm } from 'react-hook-form';
 import { useCallback } from 'react';
 
 const FormularioManutencao: React.FC = () => {
-  const { register, handleSubmit, watch, getValues } = useForm({});
+  const { register, getValues } = useForm({});
 
   const addPost = useCallback((data: any) => {
     console.log(data);
