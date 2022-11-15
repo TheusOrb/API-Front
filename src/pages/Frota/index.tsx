@@ -1,15 +1,8 @@
+import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import FormularioFrota from "../../components/Form/FormFrota";
-import {
-  TableHome,
-  TableBody,
-  BodyRow,
-  TableData,
-  HeadData,
-  TableHead,
-  HeadRow,
-} from "../../components/Table/styles";
+
 
 import Wrapper from "../../components/Wrapper";
 
@@ -19,6 +12,13 @@ interface Veiculo {
   marca: string;
   ano: string;
 }
+
+const columns = [
+  { field: "placa", headerName: "Placa" },
+  { field: "descrveiculo", headerName: "Descrição do Veículo", width: 100 },
+  { field: "marca", headerName: "Marca"},
+  { field: "ano", headerName: "Ano"},
+];
 
 function getVeiculos() {
   const [veiculos, setVeiculos] = useState<Veiculo[]>([]);
@@ -35,27 +35,12 @@ function getVeiculos() {
   return (
     <Wrapper>
      <FormularioFrota></FormularioFrota>
-      <TableHome>
-        <TableHead>
-          <HeadRow>
-            <HeadData>Placa</HeadData>
-            <HeadData>Veiculo</HeadData>
-            <HeadData>Marca</HeadData>
-            <HeadData>Ano</HeadData>
-          </HeadRow>
-        </TableHead>
-        <TableBody>
-          {veiculos.map((veiculos) => (
-            <BodyRow>
-              <TableData key={veiculos.placa}>{veiculos.placa}</TableData>
-              <TableData key={veiculos.placa}>{veiculos.descrveiculo}</TableData>
-              <TableData key={veiculos.placa}>{veiculos.marca}</TableData>
-              <TableData key={veiculos.placa}>{veiculos.ano}</TableData>
-            </BodyRow>
-          ))}
-          ;
-        </TableBody>
-      </TableHome>
+     <DataGrid
+        rows={veiculos}
+        columns={columns}
+        pageSize={4}
+        rowsPerPageOptions={[5]}
+      />
     </Wrapper>
   );
 }

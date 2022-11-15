@@ -2,15 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Wrapper from "../../components/Wrapper";
 import FormularioManutencao from "../../components/Form/FormManutencao";
-import {
-  TableHome,
-  TableBody,
-  BodyRow,
-  TableData,
-  HeadData,
-  TableHead,
-  HeadRow,
-} from "../../components/Table/styles";
+import { DataGrid } from "@mui/x-data-grid";
 
 interface Manutencao {
   idmanutencao: string;
@@ -21,6 +13,15 @@ interface Manutencao {
   proximadata: string;
   valor: string;
 }
+
+const columns = [
+  { field: "placa", headerName: "Placa" },
+  { field: "descrmanutencao", headerName: "Descrição da manutenção", width: 100 },
+  { field: "tipomanutencao", headerName: "Tipo de manutenção"},
+  { field: "datamanutencao", headerName: "Data da manutenção"},
+  { field: "proximadata", headerName: "Data da proxima manutenção"},
+  { field: "valor", headerName: "Valor da manutenção"},
+];
 
 function getManutencao() {
   const [manutencao, setManutencao] = useState<Manutencao[]>([]);
@@ -37,43 +38,12 @@ function getManutencao() {
   return (
     <Wrapper>
       <FormularioManutencao></FormularioManutencao>
-      <TableHome>
-        <TableHead>
-          <HeadRow>
-            <HeadData>Placa</HeadData>
-            <HeadData>Manuteção</HeadData>
-            <HeadData>Tipo</HeadData>
-            <HeadData>Data da Manutenção</HeadData>
-            <HeadData>Data da Proxíma Manutenção</HeadData>
-            <HeadData>Valor</HeadData>
-          </HeadRow>
-        </TableHead>
-        <TableBody>
-          {manutencao.map((manutencao) => (
-            <BodyRow>
-              <TableData key={manutencao.idmanutencao}>
-                {manutencao.placaveiculo}
-              </TableData>
-              <TableData key={manutencao.idmanutencao}>
-                {manutencao.descrmanutencao}
-              </TableData>
-              <TableData key={manutencao.idmanutencao}>
-                {manutencao.tipomanutencao}
-              </TableData>
-              <TableData key={manutencao.idmanutencao}>
-                {manutencao.datamanutencao}
-              </TableData>
-              <TableData key={manutencao.idmanutencao}>
-                {manutencao.proximadata}
-              </TableData>
-              <TableData key={manutencao.idmanutencao}>
-                {manutencao.valor}
-              </TableData>
-            </BodyRow>
-          ))}
-          ;
-        </TableBody>
-      </TableHome>
+      <DataGrid
+        rows={manutencao}
+        columns={columns}
+        pageSize={6}
+        rowsPerPageOptions={[5]}
+      />
     </Wrapper>
   );
 }
