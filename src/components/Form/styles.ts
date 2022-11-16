@@ -9,7 +9,6 @@ margin: 4rem;
 
 export const OrganizationForm = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
 `;
 
@@ -30,24 +29,8 @@ export const Input = styled.input`
 `;
 
 export const OrganizationButoon = styled.div`
+  margin-top: 2rem;
   display: flex;
   flex-direction: row-reverse;
 
-`;
-
-export const Add = styled.button`
-  background-color: limegreen;
-  width: 3rem;
-  border-color: white;
-  border-radius:6px;
-  color: white;
-  height: 2rem;
-`;
-export const Remove = styled.button`
-  background-color: red;
-  width: 3rem;
-  border-color: white;
-  border-radius:6px;
-  color: white;
-  height: 2rem;
 `;

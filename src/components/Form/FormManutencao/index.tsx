@@ -1,80 +1,51 @@
-import {
-  Add,
-  Form,
-  Input,
-  OrganizationButoon,
-  OrganizationForm,
-  Remove,
-} from '../styles';
+import { Form, Input, OrganizationButoon, OrganizationForm } from "../styles";
 
-import { useForm } from 'react-hook-form';
-import { useCallback } from 'react';
+import { useCallback } from "react";
+import { Button, TextField } from "@mui/material";
 
 const FormularioManutencao: React.FC = () => {
-  const { register, getValues } = useForm({});
-
   const addPost = useCallback((data: any) => {
     console.log(data);
   }, []);
 
   return (
     <>
-      <Form onSubmit={() => addPost(getValues())}>
+      <Form>
         <OrganizationForm>
-          <Input
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            placeholder="Placa do Veículo"
-            {...register('placa')}
+          <TextField
+            id="outlined-basic"
+            label="Placa do Veículo"
+            variant="outlined"
           />
-          <Input
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            placeholder="Manutenção"
-            {...register('manutencao')}
+          <TextField
+            id="outlined-basic"
+            label="Manutenção"
+            variant="outlined"
           />
-          <Input
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            placeholder="Tipo de Manutenção"
-            {...register('tipomanutencao')}
+          <TextField
+            id="outlined-basic"
+            label="Tipo de Manutenção"
+            variant="outlined"
           />
-        </OrganizationForm>
-        <OrganizationForm>
-          <Input
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            placeholder="Data da Manutenção"
-            {...register('datamanutencao')}
+          <TextField
+            id="outlined-basic"
+            label="Data da Manutenção"
+            variant="outlined"
           />
-          <Input
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            placeholder="Data da Proxima Manutenção"
-            {...register('proximadata')}
+          <TextField
+            id="outlined-basic"
+            label="Data da Proxima Manutenção"
+            variant="outlined"
           />
-          <Input
-            type="text"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            placeholder="Valor da Manutenção"
-            {...register('valor')}
-          />
+          <TextField id="outlined-basic" label="Valor" variant="outlined" />
         </OrganizationForm>
         <OrganizationButoon>
-          <Add type="submit">+</Add>
-          <Remove onClick={() => addPost(getValues())}>-</Remove>
+          <Button variant="contained" color="success">
+            +
+          </Button>
+          <Button variant="contained" color="error">
+            -
+          </Button>
         </OrganizationButoon>
       </Form>
     </>

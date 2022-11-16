@@ -1,17 +1,15 @@
 import {
-  Add,
   Form,
   Input,
   OrganizationButoon,
   OrganizationForm,
-  Remove,
 } from "../styles";
 
-import { useForm } from "react-hook-form";
 import { useCallback } from "react";
+import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
 
 const FormularioFrota: React.FC = () => {
-  const { register, getValues} = useForm({});
 
   const addPost = useCallback((data: any) => {
     console.log(data);
@@ -21,55 +19,19 @@ const FormularioFrota: React.FC = () => {
     <>
       <Form>
         <OrganizationForm>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Placa do Veículo"
-              {...register("placa")}
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Veículo"
-              {...register("veiculo")}
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Marca"
-              {...register("marca")}
-            />
-          </div>
-          <div>
-            <Input
-              type="text"
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Ano"
-              {...register("ano")}
-            />
-          </div>
+            <TextField id="outlined-basic" label="Placa do Veículo" variant="outlined" />
+            <TextField id="outlined-basic" label="Veículo" variant="outlined" />
+            <TextField id="outlined-basic" label="Marca" variant="outlined" />
+            <TextField id="outlined-basic" label="Ano" variant="outlined" />
         </OrganizationForm>
         <OrganizationButoon>
-          <Add onClick={() => addPost(getValues())}>+</Add>
-          <Remove>-</Remove>
+          <Button variant="contained" color="success">+
+          </Button>
+          <Button variant="contained" color="error" >-
+          </Button>
         </OrganizationButoon>
       </Form>
     </>
   );
 };
 export default FormularioFrota;
-
-

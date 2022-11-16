@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Wrapper from "../../components/Wrapper";
 import FormularioManutencao from "../../components/Form/FormManutencao";
 import { DataGrid } from "@mui/x-data-grid";
+import { TableHome } from "../../components/Table/styles";
 
 interface Manutencao {
   idmanutencao: string;
@@ -15,12 +16,21 @@ interface Manutencao {
 }
 
 const columns = [
-  { field: "placa", headerName: "Placa" },
-  { field: "descrmanutencao", headerName: "Descrição da manutenção", width: 100 },
-  { field: "tipomanutencao", headerName: "Tipo de manutenção"},
-  { field: "datamanutencao", headerName: "Data da manutenção"},
-  { field: "proximadata", headerName: "Data da proxima manutenção"},
-  { field: "valor", headerName: "Valor da manutenção"},
+  { field: "placaveiculo", headerName: "Placa", flex: 2 },
+
+  {
+    field: "descrmanutencao",
+    headerName: "Descrição da manutenção",
+    flex: 3,
+  },
+  { field: "tipomanutencao", headerName: "Tipo de manutenção", flex: 1.6 },
+  { field: "datamanutencao", headerName: "Data da manutenção", flex: 2 },
+  {
+    field: "proximadata",
+    headerName: "Data da proxima manutenção",
+    flex: 2,
+  },
+  { field: "valor", headerName: "Valor da manutenção", flex: 2 },
 ];
 
 function getManutencao() {
@@ -38,12 +48,14 @@ function getManutencao() {
   return (
     <Wrapper>
       <FormularioManutencao></FormularioManutencao>
-      <DataGrid
-        rows={manutencao}
-        columns={columns}
-        pageSize={6}
-        rowsPerPageOptions={[5]}
-      />
+      <TableHome>
+        <DataGrid
+          rows={manutencao}
+          columns={columns}
+          pageSize={10}
+          getRowId={(columns) => columns.idmanutencao}
+        />
+      </TableHome>
     </Wrapper>
   );
 }

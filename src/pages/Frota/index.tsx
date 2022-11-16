@@ -2,7 +2,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import FormularioFrota from "../../components/Form/FormFrota";
-
+import { TableHome } from "../../components/Table/styles";
 
 import Wrapper from "../../components/Wrapper";
 
@@ -14,10 +14,10 @@ interface Veiculo {
 }
 
 const columns = [
-  { field: "placa", headerName: "Placa" },
-  { field: "descrveiculo", headerName: "Descrição do Veículo", width: 100 },
-  { field: "marca", headerName: "Marca"},
-  { field: "ano", headerName: "Ano"},
+  { field: "placa", headerName: "Placa", flex: 1 },
+  { field: "descrveiculo", headerName: "Descrição do Veículo", flex: 1 },
+  { field: "marca", headerName: "Marca", flex: 1 },
+  { field: "ano", headerName: "Ano", flex: 1 },
 ];
 
 function getVeiculos() {
@@ -34,13 +34,16 @@ function getVeiculos() {
 
   return (
     <Wrapper>
-     <FormularioFrota></FormularioFrota>
-     <DataGrid
-        rows={veiculos}
-        columns={columns}
-        pageSize={4}
-        rowsPerPageOptions={[5]}
-      />
+      <FormularioFrota></FormularioFrota>
+      <TableHome>
+        <DataGrid
+          rows={veiculos}
+          columns={columns}
+          rowsPerPageOptions={[5]}
+          pageSize={5}
+          getRowId={(columns) => columns.placa}
+        />
+      </TableHome>
     </Wrapper>
   );
 }
