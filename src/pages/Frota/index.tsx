@@ -39,7 +39,6 @@ function getVeiculos() {
         <DataGrid
           rows={veiculos}
           columns={columns}
-          rowsPerPageOptions={[5]}
           pageSize={5}
           getRowId={(columns) => columns.placa}
         />

@@ -4,7 +4,7 @@ export const Form = styled.div`
 display: flex;
 flex-direction: column;
 color: black;
-margin: 4rem;
+margin: 5%;
 `;
 
 export const OrganizationForm = styled.div`
@@ -31,6 +31,6 @@ export const Input = styled.input`
 export const OrganizationButoon = styled.div`
   margin-top: 2rem;
   display: flex;
-  flex-direction: row-reverse;
+flex-direction: row-reverse;
 
 `;

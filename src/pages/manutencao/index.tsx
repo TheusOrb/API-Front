@@ -52,7 +52,7 @@ function getManutencao() {
         <DataGrid
           rows={manutencao}
           columns={columns}
-          pageSize={10}
+          pageSize={5}
           getRowId={(columns) => columns.idmanutencao}
         />
       </TableHome>
