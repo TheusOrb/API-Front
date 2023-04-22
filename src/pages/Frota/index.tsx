@@ -7,17 +7,18 @@ import { TableHome } from "../../components/Table/styles";
 import Wrapper from "../../components/Wrapper";
 
 interface Veiculo {
-  placa: string;
-  descrveiculo: string;
-  marca: string;
-  ano: string;
+  id: number;
+  name: string;
+  brand: string;
+  year: string;
+  licensePlate: string;
 }
 
 const columns = [
-  { field: "placa", headerName: "Placa", flex: 1 },
-  { field: "descrveiculo", headerName: "Descrição do Veículo", flex: 1 },
-  { field: "marca", headerName: "Marca", flex: 1 },
-  { field: "ano", headerName: "Ano", flex: 1 },
+  { field: "licensePlate", headerName: "Placa", flex: 1 },
+  { field: "name", headerName: "Descrição do Veículo", flex: 1 },
+  { field: "brand", headerName: "Marca", flex: 1 },
+  { field: "year", headerName: "Ano", flex: 1 },
 ];
 
 function getVeiculos() {
@@ -25,7 +26,7 @@ function getVeiculos() {
 
   useEffect(() => {
     axios
-      .get("/api/veiculo")
+      .get("/api/vehicle")
       .then(({ data }) => {
         setVeiculos(data);
       })
@@ -39,8 +40,7 @@ function getVeiculos() {
         <DataGrid
           rows={veiculos}
           columns={columns}
-          pageSize={5}
-          getRowId={(columns) => columns.placa}
+          getRowId={(columns) => columns.id}
         />
       </TableHome>
     </Wrapper>

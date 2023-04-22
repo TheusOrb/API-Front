@@ -6,31 +6,26 @@ import { DataGrid } from "@mui/x-data-grid";
 import { TableHome } from "../../components/Table/styles";
 
 interface Manutencao {
-  idmanutencao: string;
-  placaveiculo: string;
-  descrmanutencao: string;
-  tipomanutencao: string;
-  datamanutencao: string;
-  proximadata: string;
-  valor: string;
+  id: number;
+  licensePlace: string;
+  vehicleName: string;
+  name: string;
+  typeDescription: string;
+  date: string;
+  value: string;
 }
 
 const columns = [
-  { field: "placaveiculo", headerName: "Placa", flex: 2 },
-
+  { field: "vehicleName", headerName: "Veiculo", flex: 2 },
+  { field: "licensePlace", headerName: "Placa", flex: 2 },
   {
-    field: "descrmanutencao",
+    field: "name",
     headerName: "Descrição da manutenção",
     flex: 3,
   },
-  { field: "tipomanutencao", headerName: "Tipo de manutenção", flex: 1.6 },
-  { field: "datamanutencao", headerName: "Data da manutenção", flex: 2 },
-  {
-    field: "proximadata",
-    headerName: "Data da proxima manutenção",
-    flex: 2,
-  },
-  { field: "valor", headerName: "Valor da manutenção", flex: 2 },
+  { field: "typeDescription", headerName: "Tipo de manutenção", flex: 1.6 },
+  { field: "date", headerName: "Data da manutenção", flex: 2 },
+  { field: "value", headerName: "Valor da manutenção", flex: 2 },
 ];
 
 function getManutencao() {
@@ -38,13 +33,13 @@ function getManutencao() {
 
   useEffect(() => {
     axios
-      .get("/api/manutencao")
+      .get("/api/maintenance")
       .then(({ data }) => {
         setManutencao(data);
       })
       .catch((error) => {});
   }, []);
-
+  console.log(manutencao)
   return (
     <Wrapper>
       <FormularioManutencao></FormularioManutencao>
@@ -53,7 +48,7 @@ function getManutencao() {
           rows={manutencao}
           columns={columns}
           pageSize={5}
-          getRowId={(columns) => columns.idmanutencao}
+          getRowId={(columns) => columns.id}
         />
       </TableHome>
     </Wrapper>
